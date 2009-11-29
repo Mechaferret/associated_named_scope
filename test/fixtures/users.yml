@@ -1,0 +1,32 @@
+los_angeles:
+  id: 1
+  name: Los Angeles
+  active: 1
+  status: Guru
+  
+santa_monica:
+  id: 2
+  name: Santa Monica
+  active: 1
+  status: Novice
+  
+san_francisco:
+  id: 3
+  name: San Francisco
+  active: 0
+  status: Guru
+
+new_york:
+  id: 4
+  name: New York
+  active: 1
+  status: Intermediate
+
+austin:
+  id: 5
+  name: Austin
+  active: 1
+  status: Guru
+
+
+

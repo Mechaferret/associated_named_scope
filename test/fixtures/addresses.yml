@@ -1,0 +1,89 @@
+la_1:
+  id: 1
+  addressable_id: 1
+  addressable_type: User
+  lat: 34.05
+  lng: -118.45
+  zip: 90025
+  radius: 15
+
+la_2:
+  id: 2
+  addressable_id: 1
+  addressable_type: User
+  lat: 34.03
+  lng: -118.4
+  zip: 90034
+  radius: 15
+
+sm_1:
+  id: 3
+  addressable_id: 2
+  addressable_type: User
+  lat: 34.02
+  lng: -118.49
+  zip: 90401
+  radius: 15
+
+sf_1:
+  id: 4
+  addressable_id: 3
+  addressable_type: User
+  lat: 37.78
+  lng: -122.46
+  zip: 94144
+  radius: 15
+
+ny_1:
+  id: 5
+  addressable_id: 4
+  addressable_type: User
+  lat: 40.73
+  lng: -73.98
+  zip: 10009
+  radius: 15
+  
+aus_1:
+  id: 6
+  addressable_id: 5
+  addressable_type: User
+  lat: 30.4
+  lng: -97.76
+  zip: 78720
+  
+echo_park:
+  id: 7
+  addressable_id: 1
+  addressable_type: Venue
+  lat: 34.08
+  lng: -118.26
+  zip: 90026
+  radius: 15
+
+weho:
+  id: 8
+  addressable_id: 2
+  addressable_type: Venue
+  lat: 34.11
+  lng: -118.37
+  zip: 90046
+  radius: 15
+
+silverlake:
+  id: 9
+  addressable_id: 2
+  addressable_type: Venue
+  lat: 34.08
+  lng: -118.26
+  zip: 90026
+  radius: 15
+
+les:
+  id: 10
+  addressable_id: 3
+  addressable_type: Venue
+  lat: 40.73
+  lng: -73.98
+  zip: 10009
+  radius: 5
+  

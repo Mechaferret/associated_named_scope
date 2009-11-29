@@ -1,13 +1,68 @@
 AssociatedNamedScope
 ====================
 
-Introduction goes here.
+Allows (re)using named scopes on child associations to define named scopes in the parent classes.
+
+Specifically:
+
+If you want to find all posts published in the month of November, you write a named scope published_in_month on Post.
+If you want to find all users who have posts in the month of November, use AssociatedNamedScope to
+write a named scope on User called has_posts_for_month that uses Post.published_in_month.
+
+This plugin adds a new option :association to named_scope, which expects two suboptions:
+
+:source -- the source association for the child named scope
+:scope -- the named scope itself. You can specify arguments to the scope by using an array [:scope_name, arg1, ...]
+
+These scopes chain and in every way behave just like normal named_scopes. 
+
+Examples
+========
+
+A simple example to find all users who have posts published in a given month:
+
+class Post < ActiveRecord::Base
+  belongs_to :user
+  named_scope :published_in_month, lambda{|month| {:conditions=>["month(posts.publication_date)=?", month]}}
+end
+
+class User < ActiveRecord::Base
+  has_many :posts
+  named_scope :has_posts_for_month, lambda{|month|
+    {:association=>{:source=>:posts, :scope=>[:published_in_month, month]}}
+  }
+end
 
 
-Example
-=======
+A more complex example, using a nested association, to find all posts written by users within range of a particular address:
 
-Example goes here.
+class Address < ActiveRecord::Base
+  belongs_to :addressable, :polymorphic => true
+  
+  named_scope :in_range, lambda {|lat, lng, zip_code| 
+    {:conditions => 
+    "(
+      (POW(addresses.radius,2) >= 
+        (POW(69.1*(#{lat}-addresses.lat),2) + 
+          POW(69.1*(#{lng}-addresses.lng) * cos(#{lat} / 57.3), 2)
+        )
+      )
+      OR (addresses.zip = '#{zip_code}')
+     )"
+  }}
+end
+
+class User < ActiveRecord::Base
+  has_many :posts
+  has_many :addresses, :as => :addressable
+end
+
+class Post < ActiveRecord::Base
+  belongs_to :user
+  named_scope :within_range, lambda{|address|
+    {:association=>{:source=>{:user=>:addresses}, :scope=>[:in_range, address.lat, address.lng, address.zip]}}
+  }
+end
 
 
 Copyright (c) 2009 Monica McArthur (mechaferret@gmail.com), released under the MIT license

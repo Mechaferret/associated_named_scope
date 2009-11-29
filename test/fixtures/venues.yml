@@ -1,0 +1,14 @@
+spaceland:
+  id: 1
+  name: spaceland
+  rating: 5
+  
+roxy:
+  id: 2
+  name: roxy
+  rating: 2
+  
+cakeshop:
+  id: 3
+  name: Cake Shop
+  rating: 4
