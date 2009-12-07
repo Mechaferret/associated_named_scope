@@ -11,7 +11,7 @@ write a named scope on User called has_posts_for_month that uses Post.published_
 
 This plugin adds a new option :association to named_scope, which expects two suboptions:
 
-:source -- the source association for the child named scope
+:source -- the source association for the child named scope. You can specify nested associations using standard hash syntax (e.g., {:user=>:addresses} for the addresses of the user of the current model).
 :scope -- the named scope itself. You can specify arguments to the scope by using an array [:scope_name, arg1, ...]
 
 These scopes chain and in every way behave just like normal named_scopes. 
