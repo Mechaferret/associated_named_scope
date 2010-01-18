@@ -3,30 +3,35 @@ los_angeles:
   name: Los Angeles
   active: 1
   status: Guru
+  created_at: 2009-08-07
   
 santa_monica:
   id: 2
   name: Santa Monica
   active: 1
   status: Novice
+  created_at: 2009-09-01
   
 san_francisco:
   id: 3
   name: San Francisco
   active: 0
   status: Guru
+  created_at: 2009-01-01
 
 new_york:
   id: 4
   name: New York
   active: 1
   status: Intermediate
+  created_at: 2009-01-01
 
 austin:
   id: 5
   name: Austin
   active: 1
   status: Guru
+  created_at: 2009-07-24
 
 
 

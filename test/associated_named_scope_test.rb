@@ -68,6 +68,13 @@ class AssociatedNamedScopeTest < ActiveSupport::TestCase
     assert november_gurus.include?(users(:austin))
   end
   
+  test "scopes with their own conditions etc work" do
+    new_by_guru = Post.new_by_guru
+    assert new_by_guru.size==2
+    assert new_by_guru.include?(posts(:la_first))
+    assert new_by_guru.include?(posts(:austin_first))
+  end
+  
   test "missing source and scope exceptions work" do
     assert_raise(ActiveRecord::NamedScope::AssociatedNamedScope::UndefinedAssociationOption) {
       User.has_approved_posts_without_source
